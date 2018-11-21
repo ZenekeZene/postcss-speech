@@ -3,7 +3,6 @@
 
 
 
-
 ## Qué es
 ¿Es un PRE-procesador?<!-- .element: class="fragment" -->
 
@@ -35,9 +34,9 @@ Note: Llega PostCSS, podemos hacer un montón de cosas del lado derecho, PERO, t
 <div class="tweet" data-src="https://twitter.com/HugoGiraudel/status/623417681660788736"></div>
 
 
-### Authoring & Optimisation
-- Ayuda a escribir mejor código.
-- Optimiza código.
+Authoring & Optimization
+- Authoring: Ayuda a escribir mejor código (Sugar Syntax)
+- Optimization: Autoprefixer, REMtoPX, minifications, imports.
 
 Ambos existen en pre's y en post's
 ![](https://cdn-images-1.medium.com/max/800/1*ZMX0_2_gQ0hyPy0J_0X9BA.jpeg)
@@ -53,23 +52,32 @@ Note: Ambos términos existen en SASS como en PostCSS. Este no sólo post-proces
 <div class="tweet" data-src="https://twitter.com/MoOx/status/623466638680178688"></div>
 
 
-[Deconfusing Pre- and Post-processing](https://medium.com/@ddprrt/deconfusing-pre-and-post-processing-d68e3bd078a3)
 
-
-## Por qué usar POSTCSS
+## Ventajas
 
 
 ### Authoring y Optimization
 
 
 ### Velocidad de procesamiento
+```markup
+PostCSS 5.0.11: 40 ms
+PostCSS 5.0.10: 60ms    (1.5 times slower)
+Rework:         75 ms   (1.9 times slower)
+libsass:        76 ms   (1.9 times slower)
+Less:           147 ms  (3.7 times slower)
+Stylus:         166 ms  (4.1 times slower)
+Stylecow:       258 ms  (6.4 times slower)
+Ruby Sass:      1042 ms (26.0 times slower)
+```
 
 
 ### Es SASS friendly
 
 
 ### Es modular, ligero
-Usa lo que necesitas.
+Usa lo que necesites
+
 (con SASS compras el paquete completo)
 
 
@@ -83,7 +91,7 @@ Por ejemplo, Cory Simmons originalmente mantenía dos versiones (Sass y Stylus) 
 
 
 
-## Por qué no usar POSTCSS
+## Desventajas
 
 
 ### Su potencial es peligroso
@@ -102,30 +110,95 @@ overbloatear tu sistema. Algunos plugins pueden ser de calidad y otros no, otros
 
 
 
+## Qué hace
+
+
+Todo lo que ya hace SASS
+
+Mixins, variables, nesting, extends, partials...
+
++
+
+
+![Autoprefixer](https://postcss.org/_/web_modules/InANutshell/autoprefixer.svg)
+![Autoprefixer demo](http://zenekezene.github.io/Publish/speech_capturas/autoprefixer.png)
+
+
+![env-preset](https://postcss.org/_/web_modules/InANutshell/cssdb.svg)
+![env-preset demo](http://zenekezene.github.io/Publish/speech_capturas/preset-env.png)
+
+
+![CSS modules](https://postcss.org/_/web_modules/InANutshell/css-modules.svg)
+![css-modules demo](http://zenekezene.github.io/Publish/speech_capturas/css-modules.png)
+
+
+![stylelint](https://postcss.org/_/web_modules/InANutshell/stylelint.svg)
+![stylelint demo](http://zenekezene.github.io/Publish/speech_capturas/stylelint.png)
+
+
+![CSS Next](https://keithjgrant.com/talks/css-from-the-future/images/cssnext.png)
+
+- [Normalizar](https://github.com/csstools/postcss-normalize)
+- [Parciales](https://github.com/jonathantneal/postcss-partial-import)
+- [Minificar](https://github.com/leodido/postcss-clean)
+- [Inmutable CSS](https://github.com/johno/immutable-css)
+- [Fallbacks](https://github.com/cuth/postcss-pxtorem)
+- [Organiza MediaQueries](https://github.com/hail2u/node-css-mqpacker)
+- [Position shortcut](https://github.com/seaneking/postcss-position)
+- [Documentación](https://github.com/jonathantneal/mdcss)
+- [Estadísticas](https://github.com/cssstats/postcss-cssstats)
+- [Etc](https://www.postcss.parts)
+
+
+### Y lo que a ti se te ocurra
+
+
+
 ## Cómo usarlo
 
 
+- Webpack
+- CSS-in-JS (Astroturf)
+- npm run / CLI
+- Browser (Browserify, Codepen)
+- Editors & IDE integration
+- Runners (Gulp, Grunt)
 
-## Plugins
-- https://github.com/cuth/postcss-pxtorem
-- Autoprefixer
-- css-mqpacker
-https://github.com/seaneking/postcss-position
+
+![Github](https://applets.imgix.net/https%3A%2F%2Fassets.ifttt.com%2Fimages%2Fchannels%2F2107379463%2Ficons%2Fon_color_large.png%3Fversion%3D0?ixlib=rails-2.1.3&w=240&h=240&auto=compress&s=07c1117d9e046c1a26150728429d62db)
+
+```bash
+git clone https://github.com/ZenekeZene/testing-postcss.git
+```
+
+```bash
+npm i
+```
+
+```bash
+gulp
+```
+
+[Repo](https://github.com/ZenekeZene/testing-postcss.git)
 
 
 
-## EL PRESENTE
+## El presente
+
+
 ![](https://cdn.evilmartians.com/front/posts/five-years-of-postcss-state-of-the-union/postcss_downloads-a4e7df2.png)
-Note: Nació hace 5 años como una herramienta para crear más herramientas CSS. Hoy en día según [npm trends](https://www.npmtrends.com/postcss-vs-webpack-vs-babel-core-vs-node-sass-vs-less) es uno de los frameworks Frontend más populates, con casi 12.000.000 
+Note: Nació hace 5 años como una herramienta para crear más herramientas CSS. Hoy en día según [npm trends](https://www.npmtrends.com/postcss-vs-webpack-vs-babel-core-vs-node-sass-vs-less) es uno de los frameworks Frontend más populares, con casi 14.000.000 de descargas en el último mes.
+
+
+
+## Links
+[PostCSS](https://postcss.org)
+[Comunidad plugins](https://www.postcss.parts)
+[Deconfusing Pre- and Post-processing](https://medium.com/@ddprrt/deconfusing-pre-and-post-processing-d68e3bd078a3)
 [5 años de PostCSS](https://evilmartians.com/chronicles/five-years-of-postcss-state-of-the-union?ref=webdesignernews.com)
-
-
-
-## Alternativas
-- https://www.slant.co/options/767/alternatives/~postcss-alternatives
-
-## A tener en cuenta
-https://ashleynolan.co.uk/blog/postcss-a-review (al final)
+[Alternativas a PostCSS](https://www.slant.co/options/767/alternatives/~postcss-alternatives)
+[CSS inmutable](https://github.com/johno/immutable-css)
+[JustEAT review PostCSS](https://ashleynolan.co.uk/blog/postcss-a-review)
 
 
 
